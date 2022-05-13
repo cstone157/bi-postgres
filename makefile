@@ -27,7 +27,8 @@ help:
 cleanup: down 
 	rm -rf data && mkdir data
 	rm -rf pg_sample_data/random/
-	docker image rm h20/bi-postgres
+	docker image rm h20/bi-postgres bi-postgres_postgres
+	docker volume prune -f
 down:
 	docker-compose -f docker-compose.yml down $(c)
 destroy:
