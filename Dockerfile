@@ -5,7 +5,7 @@ RUN mkdir preloaded_data
 
 # COPY ALL OF OUR DATA_SHEETS OVER (We copy all of them over since there's no conditional COPY)
 COPY ./pg_sample_data/adsb/*.sql \
-		./pg_sample_data/random/*.sql
+		./pg_sample_data/random/*.sql \
 		/preloaded_data/
 
 # Retrieve all of the files from the folder
