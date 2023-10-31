@@ -246,3 +246,63 @@ INSERT INTO public.gantt_chart
 		  NULL, NULL);
 
 
+CREATE TABLE public.gantt_source_data
+(
+    uid serial NOT NULL,
+    target text,
+	
+    "find_start" timestamp with time zone,
+    "find_stop" timestamp with time zone,
+
+    "fix_start" timestamp with time zone,
+    "fix_stop" timestamp with time zone,
+
+    "track_start" timestamp with time zone,
+    "track_stop" timestamp with time zone,
+
+    "target_start" timestamp with time zone,
+    "target_stop" timestamp with time zone,
+
+    "engage_start" timestamp with time zone,
+    "engage_stop" timestamp with time zone,
+
+    PRIMARY KEY (uid)
+);
+
+ALTER TABLE IF EXISTS public.gantt_source_data
+    OWNER to shoc;
+
+insert into public.gantt_source_data
+	("target", 
+	 "find_start" , "find_stop",
+	 "fix_start", "fix_stop", 
+	 "track_start", "track_stop", 
+	 "target_start", "target_stop", 
+	 "engage_start", "engage_stop")
+values 
+	('target01',
+	'2023-10-31 09:00:00+00', '2023-10-31 09:02:00+00',
+	'2023-10-31 09:02:00+00', '2023-10-31 09:10:00+00',
+	'2023-10-31 09:11:00+00', '2023-10-31 09:25:00+00',
+	'2023-10-31 09:12:00+00', '2023-10-31 09:15:00+00',
+	'2023-10-31 09:17:00+00', '2023-10-31 09:25:00+00'),
+	('target02',
+	'2023-10-31 09:15:00+00', '2023-10-31 09:16:00+00',
+	null, null,
+	null, null,
+	'2023-10-31 09:16:00+00', '2023-10-31 09:20:00+00',
+	'2023-10-31 09:20:00+00', '2023-10-31 09:22:00+00'),
+	('target03',
+	'2023-10-31 09:20:00+00', '2023-10-31 09:24:00+00',
+	'2023-10-31 09:25:00+00', '2023-10-31 09:45:00+00',
+	'2023-10-31 09:44:00+00', '2023-10-31 10:00:00+00',
+	'2023-10-31 09:46:00+00', '2023-10-31 09:49:00+00',
+	'2023-10-31 09:49:00+00', '2023-10-31 10:01:00+00'),
+	('target04',
+	'2023-10-31 09:30:00+00', '2023-10-31 09:35:00+00',
+	null, null,
+	'2023-10-31 09:35:00+00', '2023-10-31 10:00:00+00',
+	'2023-10-31 09:38:00+00', '2023-10-31 09:48:00+00',
+	'2023-10-31 09:49:00+00', '2023-10-31 10:00:00+00');
+
+
